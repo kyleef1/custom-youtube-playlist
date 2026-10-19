@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube Music Player</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Youtube Music Player</h1>
+    <p>Your personal soundtrack collection.</p>
+
+    
+    <div class="music-player">
+        <h2>Add a Song</h2>
+
+        <input
+            type="text"
+            id="youtubeURL"
+            placeholder="Paste YouTube URL here"
+        >
+
+        <button id="playButton">Load Video</button>
+
+        <div id="videoContainer">
+            <div id="youtubePlayer"></div>
+        </div>
+
+        <h2>Playlist</h2>
+
+        <ul id="playlist"></ul>
+
+        <button id="nextButton">Next Song</button>
+        <button id="shuffleButton">Shuffle: OFF</button>
+        
+        
+    <div class="playlist-tools">
+        <button id="importButton">Import Playlist</button>
+        <button id="exportButton">Export Playlist</button>
+
+        <input
+            type="file"
+            id="importFile"
+            accept=".txt,text/plain"
+            hidden
+        >
+    </div>
+
+    </div>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
