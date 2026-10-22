@@ -18,32 +18,20 @@
     <p>Your personal soundtrack collection.</p>
 
     
-    <div class="music-player">
-        <h2>Add a Song</h2>
+    
+<div class="music-player">
 
-        <input
-            type="text"
-            id="youtubeURL"
-            placeholder="Paste YouTube URL here"
-        >
+    <!-- LEFT SIDE: PLAYLIST -->
+    <section class="playlist-panel">
 
-        <button id="playButton">Load Video</button>
+        <h2>Your Playlist</h2>
 
-        <div id="videoContainer">
-            <div id="youtubePlayer"></div>
+        <div class="playlist-controls">
+            <button id="shuffleButton">Shuffle: OFF</button>
+            <button id="nextButton">Next Song</button>
+            <button id="importButton">Import Playlist</button>
+            <button id="exportButton">Export Playlist</button>
         </div>
-
-        <h2>Playlist</h2>
-
-        <ul id="playlist"></ul>
-
-        <button id="nextButton">Next Song</button>
-        <button id="shuffleButton">Shuffle: OFF</button>
-        
-        
-    <div class="playlist-tools">
-        <button id="importButton">Import Playlist</button>
-        <button id="exportButton">Export Playlist</button>
 
         <input
             type="file"
@@ -51,9 +39,38 @@
             accept=".txt,text/plain"
             hidden
         >
-    </div>
 
-    </div>
+        <div class="playlist-scroll">
+            <ul id="playlist"></ul>
+        </div>
+
+    </section>
+
+    <!-- RIGHT SIDE: PLAYER -->
+    <section class="player-panel">
+
+        <h2>Now Playing</h2>
+
+        <div id="videoContainer">
+            <div id="youtubePlayer"></div>
+        </div>
+
+        <h2>Add a Song</h2>
+
+        <div class="song-input">
+            <input
+                type="text"
+                id="youtubeURL"
+                placeholder="Paste YouTube URL here"
+            >
+
+            <button id="playButton">Load Video</button>
+        </div>
+
+    </section>
+
+</div>
+
 
     <script src="https://www.youtube.com/iframe_api"></script>
     <script src="script.js"></script>

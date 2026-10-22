@@ -1,22 +1,31 @@
 
+/* GENERAL PAGE STYLING */
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: #181818;
     color: white;
     font-family: 'Poppins', sans-serif;
     text-align: center;
-    padding: 50px;
+    margin: 0;
+    padding: 30px;
 }
 
 h1 {
     color: #e60012;
 }
 
+/* BUTTONS */
+
 button {
     background-color: #e60012;
     color: white;
     font-family: inherit;
     border: none;
-    padding: 15px 30px;
+    padding: 12px 18px;
     border-radius: 8px;
     cursor: pointer;
 }
@@ -25,27 +34,104 @@ button:hover {
     background-color: #eb3040;
 }
 
+/* MAIN TWO-COLUMN LAYOUT */
+
 .music-player {
-    background-color: #242424;
-    padding: 30px;
-    border-radius: 12px;
-    max-width: 700px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+    gap: 24px;
+    width: min(1400px, 100%);
     margin: 30px auto;
+    text-align: left;
 }
 
-input {
-    padding: 12px;
-    width: 60%;
-    border: none;
-    border-radius: 6px;
-    font-family: inherit;
-    margin-right: 10px;
+/* LEFT AND RIGHT PANELS */
+
+.playlist-panel,
+.player-panel {
+    background-color: #242424;
+    padding: 24px;
+    border-radius: 12px;
+    min-width: 0;
 }
+
+.playlist-panel h2,
+.player-panel h2 {
+    margin-top: 0;
+}
+
+/* PLAYLIST CONTROL BUTTONS */
+
+.playlist-controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.playlist-controls button {
+    width: 100%;
+}
+
+/* INDEPENDENT PLAYLIST SCROLL */
+
+.playlist-scroll {
+    height: 55vh;
+    min-height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 8px;
+}
+
+/* PLAYLIST SONGS */
+
+#playlist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#playlist li {
+    background-color: #333;
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+#playlist li:hover {
+    background-color: #444;
+}
+
+#playlist li span {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    cursor: pointer;
+}
+
+/* REMOVE BUTTON */
+
+.remove-button {
+    background-color: #b00020;
+    padding: 8px 12px;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+.remove-button:hover {
+    background-color: #ff3344;
+}
+
+/* YOUTUBE VIDEO PLAYER */
 
 #videoContainer {
     width: 100%;
-    margin-top: 25px;
     aspect-ratio: 16 / 9;
+    margin-bottom: 24px;
 }
 
 #videoContainer iframe {
@@ -55,63 +141,42 @@ input {
     border-radius: 8px;
 }
 
-#playlist {
-    list-style: none;
-    padding: 0;
-    text-align: left;
-}
+/* ADD SONG INPUT */
 
-#playlist li {
-    background-color: #333;
-    padding: 12px;
-    margin-bottom: 8px;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-#playlist li:hover {
-    background-color: #444;
-}
-
-#nextButton {
-    margin-top: 15px;
-}
-
-#playlist li {
+.song-input {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-}
-
-#playlist li span {
-    flex: 1;
-    cursor: pointer;
-}
-
-.remove-button {
-    background-color: #b00020;
-    padding: 8px 12px;
-    font-size: 12px;
-}
-
-.remove-button:hover {
-    background-color: #ff3344;
-}
-
-
-.playlist-tools {
-    display: flex;
-    justify-content: center;
     gap: 10px;
-    margin-top: 20px;
-    flex-wrap: wrap;
 }
 
-.playlist-tools button {
-    background-color: #444;
+.song-input input {
+    flex: 1;
+    min-width: 0;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-family: inherit;
 }
 
-.playlist-tools button:hover {
-    background-color: #666;
+.song-input button {
+    flex-shrink: 0;
+}
+
+/* SMALLER SCREENS */
+
+@media (max-width: 800px) {
+    body {
+        padding: 15px;
+    }
+
+    .music-player {
+        grid-template-columns: 1fr;
+    }
+
+    .playlist-scroll {
+        height: 350px;
+    }
+
+    .song-input {
+        flex-direction: column;
+    }
 }
