@@ -382,6 +382,13 @@ importFile.addEventListener("change", async function() {
         return;
     }
 
+    
+if (file.size > 1024 * 1024) {
+    alert("Playlist file is too large. Maximum size is 1 MB.");
+    importFile.value = "";
+    return;
+}
+
     try {
         const content = await file.text();
         const lines = content.split(/\r?\n/);
